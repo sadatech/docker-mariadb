@@ -8,7 +8,7 @@ RUN apt -y update && \
 ARG GPG_KEYS=177F4010FE56CA3336300305F1656F24C74CD1D8
 ARG MARIADB_MAJOR=10.7
 ARG MARIADB_VERSION=1:10.7.3+maria~focal
-ARG REPOSITORY="http://archive.mariadb.org/mariadb-10.7.3/repo/ubuntu/ focal main"
+ARG REPOSITORY="http://mirror.dknet.my.id/mariadb/mariadb-10.7.3/repo/ubuntu/ focal main"
 
 # ENV
 ENV GOSU_VERSION 1.14

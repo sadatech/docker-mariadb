@@ -95,11 +95,11 @@ set -ex; \
 	} | debconf-set-selections; \
 	apt-get update; \
 	apt-get install -y \
-		"mariadb-server=$MARIADB_VERSION" \
+		"mariadb-server=$MARIADB_VERSION"; \
 # mariadb-backup is installed at the same time so that `mysql-common` is only installed once from just mariadb repos
 		# mariadb-backup \
 		# socat \
-	; \
+	# ; \
 # Temporary work around for MDEV-27980, closes #417
 	sed --follow-symlinks -i -e 's/--loose-disable-plugin-file-key-management//' /usr/bin/mysql_install_db ; \
 	rm -rf /var/lib/apt/lists/*; \
