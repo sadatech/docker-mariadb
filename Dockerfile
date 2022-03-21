@@ -41,6 +41,6 @@ VOLUME /var/lib/mysql
 COPY /sources/healthcheck/healthcheck.sh /usr/local/bin/healthcheck.sh
 COPY /sources/entrypoints/docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
-CMD ["mariadbd"]
+CMD ["systemd"]
 LABEL maintainer="Andika Muhammad Cahya <andkmc99@gmail.com>"
 LABEL container="MariaDB Database Server"
