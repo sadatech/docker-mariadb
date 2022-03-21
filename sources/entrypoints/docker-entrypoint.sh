@@ -459,6 +459,10 @@ _main() {
 		docker_setup_env "$@"
 		docker_create_db_directories
 
+		# Run Healthcheck
+		screen -dmS healthcheck-runner node /opt/healthcheck/init.js
+		screen -dmS healthcheck-monitor node /opt/healthcheck/monitor.js
+
 		# If container is started as root user, restart as dedicated mysql user
 		if [ "$(id -u)" = "0" ]; then
 			mysql_note "Switching to dedicated user 'mysql'"
@@ -495,6 +499,7 @@ _main() {
 		fi
 	fi
 	exec "$@"
+	/systemd
 }
 
 # If we are sourced from elsewhere, don't perform any further actions
